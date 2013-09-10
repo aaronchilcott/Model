@@ -13,6 +13,10 @@ class Enum extends VoAbstract
 
     public function translate($value)
     {
+        if ($this->config['allowNull'] && is_null($value)) {
+            return $value;
+        }
+
         if (in_array($value, $this->values)) {
             return $value;
         }

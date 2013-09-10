@@ -11,6 +11,10 @@ class Boolean extends VoAbstract
 
     public function translate($value)
     {
+        if ($this->config['allowNull'] && is_null($value)) {
+            return $value;
+        }
+
         $lower = strtolower($value);
 
         if ($lower === 'true') {

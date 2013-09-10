@@ -13,6 +13,10 @@ class EnumSet extends VoAbstract
 
     public function translate($value)
     {
+        if ($this->config['allowNull'] && is_null($value)) {
+            return $value;
+        }
+
         if (!is_array($value)) {
             return;
         }
